@@ -59,7 +59,7 @@
 11. HOSTPORT %{IPORHOST}:%{POSINT}
 
 
-## paths
+## Path
 
 1. PATH (?:%{UNIXPATH}|%{WINPATH})
 
@@ -73,7 +73,6 @@
 
 6. URIHOST %{IPORHOST}(?::%{POSINT:port})?
 
-#### uripath comes loosely from RFC1738, but mostly from what Firefox doesn't turn into %XX
 7. URIPATH (?:/[A-Za-z0-9$.+!*'(){},~:;=@#%_\-]*)+
 
 8. URIPARAM \?(?:[A-Za-z0-9]+(?:=(?:[^&]*))?(?:&(?:[A-Za-z0-9]+(?:=(?:[^&]*))?)?)*)?
@@ -85,7 +84,7 @@
 11. URI %{URIPROTO}://(?:%{USER}(?::[^@]*)?@)?(?:%{URIHOST})?(?:%{URIPATHPARAM})?
 
 
-## Months: January, Feb, 3, 03, 12, December
+## Month
 
 1. MONTH \b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\b
 
@@ -96,12 +95,12 @@
 4. MONTHDAY (?:(?:0[1-9])|(?:[12][0-9])|(?:3[01])|[1-9])
 
 
-## Days
+## Day
 
 1. DAY (?:Mon(?:day)?|Tue(?:sday)?|Wed(?:nesday)?|Thu(?:rsday)?|Fri(?:day)?|Sat(?:urday)?|Sun(?:day)?)
 
 
-## Years
+## Year
 
 1. YEAR (?>\d\d){1,2}
 
@@ -110,7 +109,6 @@
 3. MINUTE (?:[0-5][0-9])
 
 
-## '60' is a leap second in most time standards and thus is valid.
 ## Time
 
 1. SECOND (?:(?:[0-5]?[0-9]|60)(?:[:.,][0-9]+)?)
@@ -118,7 +116,7 @@
 2. TIME (?!<[0-9])%{HOUR}:%{MINUTE}(?::%{SECOND})(?![0-9])
 
 
-## datestamp is YYYY/MM/DD-HH:MM:SS.UUUU (or something like it)
+## Datestamp
 
 1. DATE_US %{MONTHNUM}[/-]%{MONTHDAY}[/-]%{YEAR}
 
@@ -145,7 +143,7 @@
 12. DATESTAMP_EVENTLOG %{YEAR}%{MONTHNUM2}%{MONTHDAY}%{HOUR}%{MINUTE}%{SECOND}
 
 
-## Syslog Dates: Month Day HH:MM:SS
+## Syslog Date
 
 1. SYSLOGTIMESTAMP %{MONTH} +%{MONTHDAY} %{TIME}
 
